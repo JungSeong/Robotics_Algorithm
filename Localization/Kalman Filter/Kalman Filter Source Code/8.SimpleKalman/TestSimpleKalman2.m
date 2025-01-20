@@ -13,7 +13,7 @@ for k=1:Nsamples
   z = GetVolt();  
   [volt, Cov, Kg] = SimpleKalman2(z);
   
-  Xsaved(k,:) = [ volt Cov Kg ];
+  Xsaved(k,:) = [ volt Cov Kg ]; % 전압, 공분산, 칼만 이득
   Zsaved(k) = z;
 end
 

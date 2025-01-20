@@ -6,7 +6,7 @@ Xmsaved  = zeros(Nsamples, 1);
 
 
 for k=1:Nsamples
-  xm = GetSonar();
+  xm = GetSonar(); % call GetSonar.m function
   x  = MovAvgFilter(xm);
   
   Xsaved(k)  = x;
@@ -21,4 +21,6 @@ figure
 hold on
 plot(t, Xmsaved, 'r.');
 plot(t, Xsaved, 'b');
+xlabel('Time [sec]');
+ylabel('Altitude [m]');
 legend('Measured', 'Moving average')

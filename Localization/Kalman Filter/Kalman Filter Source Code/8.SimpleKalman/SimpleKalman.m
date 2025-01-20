@@ -20,13 +20,13 @@ if isempty(firstRun)
 end
 
   
-xp = A*x;
-Pp = A*P*A' + Q;
+xp = A*x; % I. 추정값의 예측값 계산
+Pp = A*P*A' + Q; % 오차 공분산의 예측값 계산
 
-K = Pp*H'*inv(H*Pp*H' + R);
+K = Pp*H'*inv(H*Pp*H' + R); % II. 칼만 이득 계산
 
-x = xp + K*(z - H*xp);
-P = Pp - K*H*Pp;
+x = xp + K*(z - H*xp); % III. 추정값 계산
+P = Pp - K*H*Pp; % IV. 오차 공분산 계산
 
 
 volt = x;
